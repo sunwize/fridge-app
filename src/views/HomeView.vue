@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FridgeItem from "@/components/FridgeItem.vue";
-import type {Item} from "../../types/Item";
-import {ref} from "vue";
+import type { Item } from "../../types/Item";
+import { ref } from "vue";
 import dayjs from "dayjs";
 
 const items = ref<Item[]>([
@@ -10,43 +10,43 @@ const items = ref<Item[]>([
     type: "dairy",
     quantity: 100,
     emoji: "🥛",
-    expiryDate: dayjs().add(5, "day").toISOString()
+    expiryDate: dayjs().add(5, "day").toISOString(),
   },
   {
     name: "Eggs",
     type: "dairy",
     quantity: 50,
     emoji: "🥚",
-    expiryDate: dayjs().add(7, "day").toISOString()
+    expiryDate: dayjs().add(7, "day").toISOString(),
   },
   {
     name: "Bread",
     type: "bakery",
     quantity: 20,
     emoji: "🍞",
-    expiryDate: dayjs().add(3, "day").toISOString()
+    expiryDate: dayjs().add(3, "day").toISOString(),
   },
   {
     name: "Banana",
     type: "fruit",
     quantity: 80,
     emoji: "🍌",
-    expiryDate: dayjs().subtract(2, "day").toISOString()
+    expiryDate: dayjs().subtract(2, "day").toISOString(),
   },
   {
     name: "Apple",
     type: "fruit",
     quantity: 60,
     emoji: "🍎",
-    expiryDate: dayjs().toISOString()
+    expiryDate: dayjs().toISOString(),
   },
   {
     name: "Orange",
     type: "fruit",
     quantity: 40,
     emoji: "🍊",
-    expiryDate: dayjs().add(6, "day").toISOString()
-  }
+    expiryDate: dayjs().add(6, "day").toISOString(),
+  },
 ]);
 </script>
 

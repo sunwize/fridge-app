@@ -2,8 +2,8 @@
 import Card from "@/components/ui/Card.vue";
 import type { Item } from "../../types/Item";
 import dayjs from "dayjs";
-import {computed} from "vue";
-import {cn} from "@/utils/cn";
+import { computed } from "vue";
+import { cn } from "@/utils/cn";
 
 type Props = {
   item: Item
