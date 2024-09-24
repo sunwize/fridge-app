@@ -5,5 +5,18 @@
 @tailwind utilities;
 
 :root {
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+.animate-jiggle {
+    animation: jiggle 150ms infinite;
+}
+
+@keyframes jiggle {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
 }

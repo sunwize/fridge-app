@@ -1,4 +1,4 @@
-export type ItemType = "fruits" | "vegetables" | "meat" | "dairy" | "bakery" | "pantry" | "frozen" | "beverages" | "cooked" | "other";
+export type ItemType = "fruit" | "vegetable" | "meat" | "dairy" | "bakery" | "pantry" | "frozen" | "beverage" | "cooked" | "other";
 
 export type Item = {
     id: string;
@@ -6,5 +6,5 @@ export type Item = {
     quantity: number;
     emoji: string;
     type: ItemType;
-    expirationDate: string;
+    expiresAt: string;
 }
