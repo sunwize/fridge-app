@@ -22,7 +22,9 @@ const removeItem = (id: string) => {
     </h1>
     <ul class="grid grid-cols-1 gap-3">
       <li v-for="item in items" :key="item.id">
-        <FridgeItem :item="item" @remove="removeItem(item.id)" />
+        <a :href="`/item/${item.id}`">
+          <FridgeItem :item="item" @remove="removeItem(item.id)" />
+        </a>
       </li>
     </ul>
   </main>
