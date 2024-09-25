@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import FridgeItem from "@/components/FridgeItem.vue";
-import type { Item } from "../../types/Item";
 import { ref } from "vue";
-import { groceryItems } from "../../mocks/items";
-import SolarFridgeLinear from "~icons/solar/fridge-linear";
+
+import FridgeItem from "@/components/FridgeItem.vue";
+import { groceryItems } from "@@/mocks/items";
+import type { Item } from "@@/types/Item";
 import SolarFridgeBoldDuotone from "~icons/solar/fridge-bold-duotone";
 
 const items = ref<Item[]>(groceryItems);

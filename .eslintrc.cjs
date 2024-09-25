@@ -11,6 +11,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
+  plugins: [
+    "@typescript-eslint",
+    "simple-import-sort",
+  ],
   "rules": {
     "object-curly-spacing": ["error", "always"],
     "no-trailing-spaces": ["error"],
@@ -27,5 +31,6 @@ module.exports = {
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
       },
     ],
+    "simple-import-sort/imports": "error",
   },
 };

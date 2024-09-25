@@ -1,4 +1,4 @@
-import { onBeforeUnmount, onMounted, ref, type Ref } from "vue";
+import { onBeforeUnmount, onMounted, type Ref, ref } from "vue";
 
 type Options = {
     canSwipeLeft?: boolean;

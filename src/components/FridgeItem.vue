@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Card from "@/components/ui/Card.vue";
-import type { Item } from "../../types/Item";
 import dayjs from "dayjs";
 import { computed, ref } from "vue";
-import { cn } from "@/utils/cn";
+
+import Card from "@/components/ui/Card.vue";
 import { useSwipeAction } from "@/composables/useSwipeAction";
+import { cn } from "@/utils/cn";
+import type { Item } from "@@/types/Item";
 import SolarTrashBinTrashLinear from "~icons/solar/trash-bin-trash-linear";
 
 type Props = {
