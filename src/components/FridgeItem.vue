@@ -43,7 +43,7 @@ const { isSwipedLeft } = useSwipeAction(elementRef, {
                 })"
             />
         </div>
-        <div ref="elementRef" class="relative transition-all duration-75 ease-linear">
+        <div ref="elementRef" class="relative transition-all duration-75 ease-linear will-change-transform">
             <Card>
                 <div class="flex items-center gap-4">
                     <p class="text-3xl">{{ item.emoji }}</p>

@@ -24,7 +24,7 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
     const isSwipedRight = ref(false);
 
     const onTouchStart = (event: TouchEvent) => {
-        if (event.touches.length === 0) return;
+        if (event.touches.length !== 1) return;
         const [touch] = event.touches;
         start.x = touch.clientX;
         start.y = touch.clientY;
@@ -33,7 +33,7 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
     };
 
     const onTouchMove = (event: TouchEvent) => {
-        if (event.touches.length === 0 || isTouchCancelled) return;
+        if (event.touches.length !== 1 || isTouchCancelled) return;
         const [touch] = event.touches;
         diff.x = touch.clientX - start.x;
         diff.y = touch.clientY - start.y;
@@ -60,6 +60,8 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
 
         isSwipedLeft.value = diff.x <= -offset * threshold / 100;
         isSwipedRight.value = diff.x >= offset * threshold / 100;
+
+        event.preventDefault();
     };
 
     const onTouchEnd = () => {
