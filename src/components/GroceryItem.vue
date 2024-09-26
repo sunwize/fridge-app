@@ -32,10 +32,7 @@ const expiresIn = computed(() => {
         <p class="text-3xl w-10 text-center shrink-0">
           {{ item.emoji }}
         </p>
-        <div
-          class="truncate"
-          test="1"
-        >
+        <div class="truncate">
           <p class="font-medium text-lg text-gray-500 truncate">
             {{ item.name }}
           </p>
