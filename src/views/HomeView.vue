@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import FridgeItem from "@/components/FridgeItem.vue";
+import GroceryItem from "@/components/GroceryItem.vue";
 import { groceryItems } from "@@/mocks/items";
 import type { Item } from "@@/types/Item";
 import SolarFridgeBoldDuotone from "~icons/solar/fridge-bold-duotone";
@@ -23,7 +23,7 @@ const removeItem = (id: string) => {
     <ul class="grid grid-cols-1 gap-3">
       <li v-for="item in items" :key="item.id">
         <a :href="`/item/${item.id}`">
-          <FridgeItem :item="item" @remove="removeItem(item.id)" />
+          <GroceryItem :item="item" @remove="removeItem(item.id)" />
         </a>
       </li>
     </ul>
