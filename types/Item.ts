@@ -7,4 +7,4 @@ export type Item = {
     emoji: string;
     type: ItemType;
     expiresAt: string;
-}
+};

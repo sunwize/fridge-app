@@ -2,35 +2,56 @@
 require("@rushstack/eslint-patch/modern-module-resolution");
 
 module.exports = {
-  root: true,
-  "extends": [
-    "plugin:vue/vue3-essential",
-    "eslint:recommended",
-    "@vue/eslint-config-typescript",
-  ],
-  parserOptions: {
-    ecmaVersion: "latest",
-  },
-  plugins: [
-    "@typescript-eslint",
-    "simple-import-sort",
-  ],
-  "rules": {
-    "object-curly-spacing": ["error", "always"],
-    "no-trailing-spaces": ["error"],
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "vue/multi-word-component-names": ["off"],
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-      },
+    root: true,
+    extends: [
+        "plugin:vue/vue3-recommended",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "@vue/eslint-config-typescript",
     ],
-    "simple-import-sort/imports": "error",
-  },
+    parser: "vue-eslint-parser",
+    parserOptions: {
+        parser: "@typescript-eslint/parser",
+        ecmaVersion: "latest",
+        sourceType: "module",
+    },
+    plugins: [
+        "@typescript-eslint",
+        "simple-import-sort",
+    ],
+    rules: {
+        "object-curly-spacing": ["error", "always"],
+        "no-trailing-spaces": ["error"],
+        "comma-dangle": ["error", "always-multiline"],
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"],
+        "vue/multi-word-component-names": ["off"],
+        "vue/html-indent": ["error", 2],
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true,
+                "ignoreMemberSort": false,
+                "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+            },
+        ],
+        "simple-import-sort/imports": "error",
+
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/member-delimiter-style": [
+            "error",
+            {
+                multiline: {
+                    delimiter: "semi",  // Enforce semicolons for multiline type definitions
+                    requireLast: true,  // Require a semicolon after the last property in multiline types
+                },
+                singleline: {
+                    delimiter: "semi",  // Enforce semicolons for single-line type definitions
+                    requireLast: true,  // Require a semicolon after the last property in single-line types
+                },
+            },
+        ],
+        "@typescript-eslint/indent": ["error", 4],
+    },
 };

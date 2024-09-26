@@ -6,16 +6,16 @@ import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    Icons({
-      compiler: "vue3",
-    }),
-  ],
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@@": fileURLToPath(new URL("./", import.meta.url)),
+    plugins: [
+        vue(),
+        Icons({
+            compiler: "vue3",
+        }),
+    ],
+    resolve: {
+        alias: {
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
+            "@@": fileURLToPath(new URL("./", import.meta.url)),
+        },
     },
-  },
 });

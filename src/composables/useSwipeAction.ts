@@ -7,7 +7,7 @@ type Options = {
     threshold?: number;
     onSwipeLeft?: () => void;
     onSwipeRight?: () => void;
-}
+};
 
 export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {}) => {
     const start = { x: 0, y: 0 };

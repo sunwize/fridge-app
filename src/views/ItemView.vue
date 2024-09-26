@@ -8,5 +8,7 @@ const itemId = computed(() => route.params.item_id);
 </script>
 
 <template>
-  <div class="text-center mt-16">{{ itemId }}</div>
+  <div class="text-center mt-16">
+    {{ itemId }}
+  </div>
 </template>

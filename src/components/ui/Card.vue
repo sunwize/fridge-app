@@ -18,7 +18,7 @@ const variants = tv({
 
 type Props = {
     size?: keyof typeof variants.variants["size"];
-}
+};
 
 defineProps<Props>();
 </script>

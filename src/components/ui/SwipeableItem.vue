@@ -7,7 +7,7 @@ import SolarTrashBinTrashLinear from "~icons/solar/trash-bin-trash-linear";
 
 type Emits = {
     (event: "remove"): void;
-}
+};
 
 const emit = defineEmits<Emits>();
 
@@ -22,18 +22,21 @@ const { isSwipedLeft } = useSwipeAction(elementRef, {
 </script>
 
 <template>
-    <div class="relative rounded-xl bg-red-400">
-        <div class="absolute top-1/2 right-5 -translate-y-1/2">
-            <SolarTrashBinTrashLinear
-                :class="cn('text-white size-10', {
-                    'animate-jiggle': isSwipedLeft
-                })"
-            />
-        </div>
-        <div ref="elementRef" class="relative transition-all duration-75 ease-linear will-change-transform">
-            <slot />
-        </div>
+  <div class="relative rounded-xl bg-red-400">
+    <div class="absolute top-1/2 right-5 -translate-y-1/2">
+      <SolarTrashBinTrashLinear
+        :class="cn('text-white size-10', {
+          'animate-jiggle': isSwipedLeft
+        })"
+      />
     </div>
+    <div
+      ref="elementRef"
+      class="relative transition-all duration-75 ease-linear will-change-transform"
+    >
+      <slot />
+    </div>
+  </div>
 </template>
 
 <style scoped>
