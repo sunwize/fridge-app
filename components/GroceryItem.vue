@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import dayjs from "dayjs";
-import { computed } from "vue";
 
-import Card from "@/components/ui/Card.vue";
-import SwipeableItem from "@/components/ui/SwipeableItem.vue";
-import { cn } from "@/utils/cn";
-import type { Item } from "@@/types/Item";
+import { cn } from "~/assets/utils/cn";
+import Card from "~/components/ui/Card.vue";
+import SwipeableItem from "~/components/ui/SwipeableItem.vue";
+import type { Item } from "~/types/Item";
 
 type Props = {
     item: Item;
@@ -27,7 +26,7 @@ const expiresIn = computed(() => {
 
 <template>
   <SwipeableItem @remove="emit('remove')">
-    <Card>
+    <Card class="select-none">
       <div class="flex items-center gap-4">
         <p class="text-3xl w-10 text-center shrink-0">
           {{ item.emoji }}

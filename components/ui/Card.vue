@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { tv } from "tailwind-variants";
 
-import { cn } from "@/utils/cn";
+import { cn } from "~/assets/utils/cn";
 
 const variants = tv({
     base: "bg-white rounded-xl ring-1 ring-gray-200 shadow-lg overflow-hidden",

@@ -1,5 +1,3 @@
-import { onBeforeUnmount, onMounted, type Ref, ref } from "vue";
-
 type Options = {
     canSwipeLeft?: boolean;
     canSwipeRight?: boolean;
@@ -9,7 +7,7 @@ type Options = {
     onSwipeRight?: () => void;
 };
 
-export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {}) => {
+export const useSwipeAction = (element: Ref<HTMLElement | null>, options: Options = {}) => {
     const start = { x: 0, y: 0 };
     const diff = { x: 0, y: 0 };
     const canSwipeLeft = options.canSwipeLeft ?? true;
@@ -33,7 +31,8 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
     };
 
     const onTouchMove = (event: TouchEvent) => {
-        if (event.touches.length !== 1 || isTouchCancelled) return;
+        if (event.touches.length !== 1 || isTouchCancelled || !element.value) return;
+
         const [touch] = event.touches;
         diff.x = touch.clientX - start.x;
         diff.y = touch.clientY - start.y;
@@ -65,6 +64,8 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
     };
 
     const onTouchEnd = () => {
+        if (!element.value) return;
+
         if (diff.x <= -offset * threshold / 100) {
             options.onSwipeLeft?.();
         }
@@ -77,12 +78,16 @@ export const useSwipeAction = (element: Ref<HTMLElement>, options: Options = {})
     };
 
     onMounted(() => {
+        if (!element.value) return;
+
         element.value.addEventListener("touchstart", onTouchStart);
         element.value.addEventListener("touchmove", onTouchMove);
         element.value.addEventListener("touchend", onTouchEnd);
     });
 
     onBeforeUnmount(() => {
+        if (!element.value) return;
+
         element.value.removeEventListener("touchstart", onTouchStart);
         element.value.removeEventListener("touchmove", onTouchMove);
         element.value.removeEventListener("touchend", onTouchEnd);
