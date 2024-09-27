@@ -38,7 +38,9 @@ const removeItem = (id: string) => {
 
 <template>
   <main class="flex-1 flex flex-col bg-orange-100/50">
-    <h1 class="text-center text-4xl font-black text-orange-400 tracking-widest uppercase flex items-center justify-center mt-6 mb-8">
+    <h1
+      class="text-center text-4xl font-black text-orange-400 tracking-widest uppercase flex items-center justify-center mt-6 mb-8"
+    >
       <span>Fri</span>
       <SolarFridgeBoldDuotone class="text-3xl -ml-1 -mr-0.5" />
       <span>ge</span>
