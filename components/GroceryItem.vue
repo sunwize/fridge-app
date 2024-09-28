@@ -14,14 +14,9 @@ type Emits = {
     (event: "remove"): void;
 };
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const emit = defineEmits<Emits>();
-
-const expiresIn = computed(() => {
-    const expiryDate = dayjs(props.item.expiresAt);
-    return expiryDate.diff(dayjs(), "day");
-});
 </script>
 
 <template>
@@ -35,20 +30,7 @@ const expiresIn = computed(() => {
           <p class="font-medium text-lg text-gray-500 truncate">
             {{ item.name }}
           </p>
-          <p
-            :class="
-              cn('font-medium text-xs text-gray-400', {
-                'text-red-500': expiresIn < 0,
-                'text-orange-400': expiresIn <= 2 && expiresIn >= 0,
-              })
-            "
-          >
-            <span v-if="expiresIn > 0">
-              Expires in {{ Math.abs(expiresIn) }} days
-            </span>
-            <span v-else-if="expiresIn === 0">Expires today</span>
-            <span v-else>Expired {{ Math.abs(expiresIn) }} days ago</span>
-          </p>
+          <FormattedExpiryDate :value="item.expiresAt" />
         </div>
         <div
           :class="

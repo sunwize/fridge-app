@@ -9,7 +9,7 @@
 }
 
 body {
-    @apply w-full min-h-dvh flex flex-col bg-gray-400 leading-snug overflow-x-hidden;
+    @apply w-full min-h-dvh flex flex-col bg-gray-800 leading-snug overflow-x-hidden;
 }
 
 #__nuxt {

@@ -11,6 +11,7 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    modules: ["radix-vue/nuxt"],
     vite: {
         plugins: [
             Icons({

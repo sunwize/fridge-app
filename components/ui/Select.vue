@@ -33,7 +33,6 @@ const onChange = (event: Event) => {
       <option
         value=""
         disabled
-        selected
       >
         <slot name="default" />
       </option>

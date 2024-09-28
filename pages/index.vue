@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import GroceryItem from "~/components/GroceryItem.vue";
+import EmptyPlaceholder from "~/components/ui/EmptyPlaceholder.vue";
 import Select from "~/components/ui/Select.vue";
 import { groceryItems } from "~/mocks/items";
 import type { Item } from "~/types/Item";
@@ -37,7 +38,7 @@ const removeItem = (id: string) => {
 </script>
 
 <template>
-  <main class="flex-1 flex flex-col bg-orange-100/50">
+  <div class="flex-1 flex flex-col">
     <h1
       class="text-center text-4xl font-black text-orange-400 tracking-widest uppercase flex items-center justify-center mt-6 mb-8"
     >
@@ -45,28 +46,36 @@ const removeItem = (id: string) => {
       <SolarFridgeBoldDuotone class="text-3xl -ml-1 -mr-0.5" />
       <span>ge</span>
     </h1>
-    <div class="flex items-center justify-end mb-4 px-2">
-      <Select
-        v-model="sortBy"
-        :options="sortOptions"
-      >
-        <template #default>
-          Sort by
-        </template>
-      </Select>
+    <div v-if="items.length > 0">
+      <div class="flex items-center justify-end mb-4 px-2">
+        <Select
+          v-model="sortBy"
+          :options="sortOptions"
+        >
+          <template #default>
+            Sort by
+          </template>
+        </Select>
+      </div>
+      <ul class="grid grid-cols-1 gap-3 overflow-x-hidden px-2 pb-6">
+        <li
+          v-for="item in itemsSorted"
+          :key="item.id"
+        >
+          <a :href="`/item/${item.id}`">
+            <GroceryItem
+              :item="item"
+              @remove="removeItem(item.id)"
+            />
+          </a>
+        </li>
+      </ul>
     </div>
-    <ul class="grid grid-cols-1 gap-3 overflow-x-hidden px-2 pb-6">
-      <li
-        v-for="item in itemsSorted"
-        :key="item.id"
-      >
-        <a :href="`/item/${item.id}`">
-          <GroceryItem
-            :item="item"
-            @remove="removeItem(item.id)"
-          />
-        </a>
-      </li>
-    </ul>
-  </main>
+    <div
+      v-else
+      class="mt-16"
+    >
+      <EmptyPlaceholder />
+    </div>
+  </div>
 </template>
